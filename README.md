@@ -30,14 +30,14 @@ Você deve criar um serviço com os seguintes requisitos:
        - Cada funcionário deve ter nome, CPF, RG, data de nascimento, email, telefone, endereço, setor e cargo.
         - Todos os campos são obrigatórios, exceto email e telefone.
         - É obrigatório ter um email OU um telefone.
-        - Não pode haver dois funcionários com o mesmo CPF (inclusive em empresas direrentes)
+        - Não pode haver dois funcionários com o mesmo CPF (inclusive em empresas diferentes)
         - O funcionário não pode estar **ativo** em duas empresas
         - O endereço do funcionário deve ser capturado automaticamente *(ex: latitude/longitude do browser + Geocoding API)*
         - *Cadastro em lote/batch [adicional]*
     2. Lista dos funcionários
         - A página deve conter a lista dos funcionários cadastrados.
         - Deve ser possível inativar um funcionário em determinada empresa (o registro continua, mas com status inativo).
-        - Deve ser possível alterar do funcionário ao clicar no card listado.
+        - Deve ser possível alterar um funcionário ao clicar no card listado.
         - *Alterar a ordem dos cards (drag and drop) [adicional]*
 
 
