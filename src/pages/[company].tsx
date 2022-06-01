@@ -9,6 +9,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import BackButton from "../components/backButton";
 import Link from "next/link";
 import Portal from "../HOC/Portal";
+import RegistrationModal from "../components/registrationModal";
 
 const Company = () => {
   const [portalIsOpen, setPortalIsOpen] = useState(false);
@@ -37,7 +38,7 @@ const Company = () => {
       </StyledCompany>
       {portalIsOpen ? (
         <Portal>
-          <div>Cadastro de funcionários</div>
+          <RegistrationModal />
         </Portal>
       ) : null}
     </>
