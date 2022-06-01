@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-type StyledCardEployeeProps = {
+type StyledCardEmployeeProps = {
   active: boolean;
 };
 
@@ -18,7 +18,7 @@ export const StyledCompany = styled.main`
   }
 `;
 
-export const StyledCardEployee = styled.div<StyledCardEployeeProps>`
+export const StyledCardEmployee = styled.div<StyledCardEmployeeProps>`
   display: grid;
   grid-template-columns: 1fr 1fr auto;
   align-items: center;

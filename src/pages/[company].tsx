@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   StyledButton,
-  StyledCardEployee,
+  StyledCardEmployee,
   StyledCompany,
 } from "../styles/pages/company";
 import { BsCheckLg } from "react-icons/bs";
@@ -64,7 +64,7 @@ const CardEmployee = ({ employee }) => {
     setIsClicked(isClicked ? false : true);
   };
   return (
-    <StyledCardEployee active={isClicked}>
+    <StyledCardEmployee active={isClicked}>
       <div className="left">
         <div className="checkbox" onClick={setCheckbox}>
           {isClicked && <BsCheckLg className="icon" />}
@@ -73,7 +73,7 @@ const CardEmployee = ({ employee }) => {
       </div>
       <div>{employee.status ? "Ativo" : "Inativo"}</div>
       <button className="btn__edit">Editar</button>
-    </StyledCardEployee>
+    </StyledCardEmployee>
   );
 };
 
