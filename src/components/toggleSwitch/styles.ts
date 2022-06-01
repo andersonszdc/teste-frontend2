@@ -43,7 +43,7 @@ export const StyledToggleSwitch = styled.div<ToggleSwitchProps>`
     width: 100%;
     height: 100%;
     border-radius: 14px;
-    transition: 0.3s;
+    transition: 0.2s;
   }
 
   .slider::before {
@@ -55,7 +55,7 @@ export const StyledToggleSwitch = styled.div<ToggleSwitchProps>`
     height: 20px;
     border-radius: 50%;
     background-color: hsl(0, 0%, 100%);
-    transition: 0.3s;
+    transition: 0.2s;
   }
 
   ${({ isActive }) =>

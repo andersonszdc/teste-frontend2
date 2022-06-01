@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { StyledToggleSwitch, WrapperToggle } from "./styles";
 
-const ToggleSwitch = () => {
-  const [isActive, setIsActive] = useState(false);
+type ToggleSwitchProps = {
+  isActive: boolean;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const ToggleSwitch = ({ isActive, setIsActive }: ToggleSwitchProps) => {
+  const handleSwitch = () => {
+    setIsActive(isActive ? false : true);
+  };
   return (
     <WrapperToggle>
       <label className="label">Status</label>
       <div className="actionZone">
         <p className="status">Inativo</p>
         <StyledToggleSwitch isActive={isActive}>
-          <label onClick={() => setIsActive(isActive ? false : true)}>
+          <label onClick={handleSwitch}>
             <span className="slider"></span>
           </label>
         </StyledToggleSwitch>

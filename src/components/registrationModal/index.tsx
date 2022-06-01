@@ -4,6 +4,7 @@ import ToggleSwitch from "../toggleSwitch";
 import { StyledRegistrationModal, WrapperRegistrationModal } from "./styles";
 
 const RegistrationModal = ({ setPortalIsOpen, employees, setEmployees }) => {
+  const [isActive, setIsActive] = useState(false);
   const [dataUser, setDataUser] = useState({
     name: "",
     CPF: "",
@@ -14,7 +15,7 @@ const RegistrationModal = ({ setPortalIsOpen, employees, setEmployees }) => {
     birthDate: "",
     telephone: "",
     email: "",
-    status: false,
+    status: isActive,
   });
 
   const addEmployee = () => {
@@ -93,7 +94,7 @@ const RegistrationModal = ({ setPortalIsOpen, employees, setEmployees }) => {
             name="address"
             setDataUser={setDataUser}
           />
-          <ToggleSwitch />
+          <ToggleSwitch isActive={isActive} setIsActive={setIsActive} />
         </div>
         <div className="action">
           <button className="btn red">Excluir funcionário</button>
