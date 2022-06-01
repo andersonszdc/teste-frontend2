@@ -3,7 +3,24 @@ import CustomInput from "../customInput";
 import ToggleSwitch from "../toggleSwitch";
 import { StyledRegistrationModal, WrapperRegistrationModal } from "./styles";
 
-const RegistrationModal = ({ setPortalIsOpen }) => {
+const RegistrationModal = ({ setPortalIsOpen, employees, setEmployees }) => {
+  const addEmployee = () => {
+    setEmployees((employees) => [
+      ...employees,
+      {
+        name: "aaaa",
+        CPF: "aaa",
+        RG: "aaa",
+        setor: "aaa",
+        cargo: "aaa",
+        address: "aaa",
+        birthDate: "aa",
+        telephone: "aaa",
+        email: "aaa",
+        status: false,
+      },
+    ]);
+  };
   return (
     <WrapperRegistrationModal>
       <StyledRegistrationModal>
@@ -29,7 +46,9 @@ const RegistrationModal = ({ setPortalIsOpen }) => {
             >
               Cancelar
             </button>
-            <button className="btn full-blue">Salvar</button>
+            <button className="btn full-blue" onClick={addEmployee}>
+              Salvar
+            </button>
           </div>
         </div>
       </StyledRegistrationModal>

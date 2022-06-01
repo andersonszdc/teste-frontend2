@@ -11,11 +11,14 @@ import Link from "next/link";
 import Portal from "../HOC/Portal";
 import RegistrationModal from "../components/registrationModal";
 
-const Company = ({ employees }) => {
+const Company = ({ databaseEmployees }) => {
   const [portalIsOpen, setPortalIsOpen] = useState(false);
+  const [employees, setEmployees] = useState([]);
+
   useEffect(() => {
-    console.log(employees);
-  });
+    setEmployees(databaseEmployees);
+  }, [databaseEmployees]);
+
   return (
     <>
       <StyledCompany>
@@ -41,7 +44,11 @@ const Company = ({ employees }) => {
       </StyledCompany>
       {portalIsOpen ? (
         <Portal>
-          <RegistrationModal setPortalIsOpen={setPortalIsOpen} />
+          <RegistrationModal
+            employees={employees}
+            setEmployees={setEmployees}
+            setPortalIsOpen={setPortalIsOpen}
+          />
         </Portal>
       ) : null}
     </>
@@ -89,6 +96,6 @@ export const getStaticProps = async ({ params }) => {
     (enterprise) => enterprise.name === (params.company as string).toUpperCase()
   );
   return {
-    props: { employees: [...enterprise[0].employees] },
+    props: { databaseEmployees: [...enterprise[0].employees] },
   };
 };
