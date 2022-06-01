@@ -33,6 +33,16 @@ export const StyledCardEployee = styled.div<StyledCardEployeeProps>`
     color: white;
   }
 
+  .btn__edit {
+    border: none;
+    background-color: transparent;
+    color: hsla(220, 100%, 50%);
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 500;
+  }
+
   ${({ active }) =>
     active &&
     `

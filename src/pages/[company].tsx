@@ -41,7 +41,7 @@ const CardEmployee = () => {
       </div>
       <p>Kai Castro Lima</p>
       <div>Ativo</div>
-      <button>Editar</button>
+      <button className="btn__edit">Editar</button>
     </StyledCardEployee>
   );
 };

@@ -9,7 +9,11 @@ export default createGlobalStyle`
     }
 
     body {
-        font-family: Roboto, Helvetica, sans-serif;
+        font-family: "Inter", sans-serif;
         margin: 80px;
+    }
+
+    button {
+      font-family: inherit;
     }
 `;
