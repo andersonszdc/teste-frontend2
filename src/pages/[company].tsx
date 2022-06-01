@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledButton,
   StyledCardEployee,
@@ -10,10 +10,12 @@ import BackButton from "../components/backButton";
 import Link from "next/link";
 import Portal from "../HOC/Portal";
 import RegistrationModal from "../components/registrationModal";
-import ToggleSwitch from "../components/toggleSwitch";
 
-const Company = () => {
+const Company = ({ employees }) => {
   const [portalIsOpen, setPortalIsOpen] = useState(false);
+  useEffect(() => {
+    console.log(employees);
+  });
   return (
     <>
       <StyledCompany>
@@ -32,14 +34,14 @@ const Company = () => {
           </StyledButton>
         </header>
         <section className="list">
-          <CardEmployee />
-          <CardEmployee />
-          <CardEmployee />
+          {employees.map((employee: any, index: number) => (
+            <CardEmployee key={index} employee={employee} />
+          ))}
         </section>
       </StyledCompany>
       {portalIsOpen ? (
         <Portal>
-          <RegistrationModal />
+          <RegistrationModal setPortalIsOpen={setPortalIsOpen} />
         </Portal>
       ) : null}
     </>
@@ -48,7 +50,7 @@ const Company = () => {
 
 export default Company;
 
-const CardEmployee = () => {
+const CardEmployee = ({ employee }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const setCheckbox = () => {
@@ -56,12 +58,37 @@ const CardEmployee = () => {
   };
   return (
     <StyledCardEployee active={isClicked}>
-      <div className="checkbox" onClick={setCheckbox}>
-        {isClicked && <BsCheckLg className="icon" />}
+      <div className="left">
+        <div className="checkbox" onClick={setCheckbox}>
+          {isClicked && <BsCheckLg className="icon" />}
+        </div>
+        <p>{employee.name}</p>
       </div>
-      <p>Kai Castro Lima</p>
-      <div>Ativo</div>
+      <div>{employee.status ? "Ativo" : "Inativo"}</div>
       <button className="btn__edit">Editar</button>
     </StyledCardEployee>
   );
+};
+
+export const getStaticPaths = async () => {
+  const res = await import("../data/employees.json");
+  return {
+    paths: res.enterprises.map((enterprise) => ({
+      params: {
+        company: enterprise.name.toLowerCase(),
+      },
+    })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const res = await import("../data/employees.json");
+  const { enterprises } = res;
+  const enterprise = enterprises.filter(
+    (enterprise) => enterprise.name === (params.company as string).toUpperCase()
+  );
+  return {
+    props: { employees: [...enterprise[0].employees] },
+  };
 };

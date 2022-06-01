@@ -3,7 +3,7 @@ import CustomInput from "../customInput";
 import ToggleSwitch from "../toggleSwitch";
 import { StyledRegistrationModal, WrapperRegistrationModal } from "./styles";
 
-const RegistrationModal = () => {
+const RegistrationModal = ({ setPortalIsOpen }) => {
   return (
     <WrapperRegistrationModal>
       <StyledRegistrationModal>
@@ -23,7 +23,12 @@ const RegistrationModal = () => {
         <div className="action">
           <button className="btn red">Excluir funcionário</button>
           <div className="action__main">
-            <button className="btn blue-border">Cancelar</button>
+            <button
+              className="btn blue-border"
+              onClick={() => setPortalIsOpen(false)}
+            >
+              Cancelar
+            </button>
             <button className="btn full-blue">Salvar</button>
           </div>
         </div>

@@ -1,0 +1,91 @@
+{
+  "enterprises": [
+    {
+      "name": "A",
+      "employees": [
+        {
+          "name": "Kai Castro Lima",
+          "CPF": "123.456.789-00",
+          "RG": "12.345.678-9",
+          "setor": "Sustentação",
+          "cargo": "Analista de sistemas",
+          "address": "Av. Lúcio Costa",
+          "birthDate": "01/01/2000",
+          "telephone": "(21) 98765-4321",
+          "email": "kai@mail.com",
+          "status": true
+        },
+        {
+          "name": "Karl Rodriguez",
+          "CPF": "714.976.121-10",
+          "RG": "12.345.678-9",
+          "setor": "Sustentação",
+          "cargo": "Analista de sistemas",
+          "address": "Av. Lúcio Costa",
+          "birthDate": "11/5/1950",
+          "telephone": "(21) 90162-8261",
+          "email": "karl@mail.com",
+          "status": false
+        }
+      ]
+    },
+    {
+      "name": "B",
+      "employees": [
+        {
+          "name": "Eddie Sile Portillo",
+          "CPF": "123.456.789-00",
+          "RG": "12.345.678-9",
+          "setor": "Produtos",
+          "cargo": "Gerente",
+          "address": "Av. Lúcio Costa",
+          "birthDate": "01/01/2000",
+          "telephone": "(21) 98765-4321",
+          "email": "eddie@mail.com",
+          "status": false
+        },
+        {
+          "name": "Andrea D. Kruse",
+          "CPF": "714.976.121-10",
+          "RG": "12.345.678-9",
+          "setor": "Sustentação",
+          "cargo": "Analista de sistemas",
+          "address": "Av. Lúcio Costa",
+          "birthDate": "11/5/1950",
+          "telephone": "(21) 90162-8261",
+          "email": "karl@mail.com",
+          "status": true
+        }
+      ]
+    },
+    {
+      "name": "C",
+      "employees": [
+        {
+          "name": "Catherine Crandall",
+          "CPF": "123.456.789-00",
+          "RG": "12.345.678-9",
+          "setor": "Comunicação",
+          "cargo": "UX Designer",
+          "address": "Av. Lúcio Costa",
+          "birthDate": "01/01/2000",
+          "telephone": "(21) 98765-4321",
+          "email": "kai@mail.com",
+          "status": true
+        },
+        {
+          "name": "Lois Walker",
+          "CPF": "714.976.121-10",
+          "RG": "12.345.678-9",
+          "setor": "Sustentação",
+          "cargo": "Analista de sistemas",
+          "address": "Av. Lúcio Costa",
+          "birthDate": "11/5/1950",
+          "telephone": "(21) 90162-8261",
+          "email": "loisl@mail.com",
+          "status": false
+        }
+      ]
+    }
+  ]
+}

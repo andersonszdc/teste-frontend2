@@ -26,6 +26,14 @@ export const StyledCardEployee = styled.div<StyledCardEployeeProps>`
   border-radius: 8px;
   transition: 0.3s ease-out;
 
+  .left {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
   .checkbox {
     display: flex;
     justify-content: center;
@@ -66,11 +74,12 @@ export const StyledButton = styled.button`
   align-items: center;
   background-color: hsla(220, 100%, 50%);
   color: #ffffff;
-  padding: 8px 24px;
+  padding: 12px 24px;
   cursor: pointer;
   border: none;
   border-radius: 8px;
   font-size: 14px;
+  font-weight: 500;
   transition: 0.2s ease-out;
 
   .icon {
