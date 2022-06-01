@@ -245,6 +245,13 @@
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   "version" "15.7.5"
 
+"@types/react-dom@^18.0.5":
+  "integrity" "sha512-OWPWTUrY/NIrjsAPkAk1wW9LZeIjSvkXRhclsFO8CZcZGCOg2G0YZy4ft+rOyYxy8B7ui5iZzi9OkDebZ7/QSA=="
+  "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.5.tgz"
+  "version" "18.0.5"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^18.0.7":
   "integrity" "sha512-CXSXHzTexlX9esf4ReIUJeaemKcmBEvYzxHDUk19c3BCcEGUvUjkeC3jkscPSfSaQ6SPDRNd/zMxi8oc/P1zxA=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.7.tgz"

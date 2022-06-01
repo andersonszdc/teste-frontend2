@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import { StyledCardCompany, StyledHome } from "../styles/pages/Home";
+import { StyledCardCompany, StyledHome } from "../styles/pages";
 import { RiArrowDropLeftLine } from "react-icons/ri";
 import BackButton from "../components/backButton";
 

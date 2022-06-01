@@ -8,30 +8,39 @@ import { BsCheckLg } from "react-icons/bs";
 import { FiPlusCircle } from "react-icons/fi";
 import BackButton from "../components/backButton";
 import Link from "next/link";
+import Portal from "../HOC/Portal";
 
 const Company = () => {
+  const [portalIsOpen, setPortalIsOpen] = useState(false);
   return (
-    <StyledCompany>
-      <header className="header">
-        <div className="header__left">
-          <Link passHref href="/">
-            <a>
-              <BackButton />
-            </a>
-          </Link>
-          <h1>Funcionários</h1>
-        </div>
-        <StyledButton>
-          <FiPlusCircle className="icon" />
-          Novo funcionário
-        </StyledButton>
-      </header>
-      <section className="list">
-        <CardEmployee />
-        <CardEmployee />
-        <CardEmployee />
-      </section>
-    </StyledCompany>
+    <>
+      <StyledCompany>
+        <header className="header">
+          <div className="header__left">
+            <Link passHref href="/">
+              <a>
+                <BackButton />
+              </a>
+            </Link>
+            <h1>Funcionários</h1>
+          </div>
+          <StyledButton onClick={() => setPortalIsOpen(true)}>
+            <FiPlusCircle className="icon" />
+            Novo funcionário
+          </StyledButton>
+        </header>
+        <section className="list">
+          <CardEmployee />
+          <CardEmployee />
+          <CardEmployee />
+        </section>
+      </StyledCompany>
+      {portalIsOpen ? (
+        <Portal>
+          <div>Cadastro de funcionários</div>
+        </Portal>
+      ) : null}
+    </>
   );
 };
 
