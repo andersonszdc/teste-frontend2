@@ -5,25 +5,11 @@ export default createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
 
     body {
-        background: #FFFFFF;
-        color: ${colors.darkGray};
         font-family: Roboto, Helvetica, sans-serif;
-
-        button {
-          cursor: pointer;
-
-          &:disabled {
-            cursor: not-allowed;
-          }
-        }
-
-        *,
-        *::before,
-        *::after {
-          box-sizing: border-box;
-        }
+        margin: 80px;
     }
 `;
