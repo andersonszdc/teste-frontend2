@@ -18,6 +18,13 @@ const RegistrationModal = () => {
           <CustomInput label="Cargo" placeholder="Analista de sistemas" />
           <CustomInput label="Endereço" placeholder="Av. Lúcio Costa" />
         </div>
+        <div className="action">
+          <button className="btn red">Excluir funcionário</button>
+          <div className="action__main">
+            <button className="btn blue-border">Cancelar</button>
+            <button className="btn full-blue">Salvar</button>
+          </div>
+        </div>
       </StyledRegistrationModal>
     </WrapperRegistrationModal>
   );
