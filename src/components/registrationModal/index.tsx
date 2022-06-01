@@ -9,7 +9,7 @@ const RegistrationModal = () => {
         <h1 className="title">Cadastro de funcionário</h1>
         <div className="inputs">
           <CustomInput label="Nome" placeholder="Kai Castro Lima" />
-          <CustomInput label="Dae nascimento" placeholder="01/01/2000" />
+          <CustomInput label="Data de nascimento" placeholder="01/01/2000" />
           <CustomInput label="Telefone" placeholder="(21) 98765-4321" />
           <CustomInput label="Email" placeholder="kai@mail.com" />
           <CustomInput label="CPF" placeholder="123.456.789-00" />
