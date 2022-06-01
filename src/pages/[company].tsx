@@ -6,12 +6,21 @@ import {
 } from "../styles/pages/company";
 import { BsCheckLg } from "react-icons/bs";
 import { FiPlusCircle } from "react-icons/fi";
+import BackButton from "../components/backButton";
+import Link from "next/link";
 
 const Company = () => {
   return (
     <StyledCompany>
       <header className="header">
-        <h1>Funcionários</h1>
+        <div className="header__left">
+          <Link passHref href="/">
+            <a>
+              <BackButton />
+            </a>
+          </Link>
+          <h1>Funcionários</h1>
+        </div>
         <StyledButton>
           <FiPlusCircle className="icon" />
           Novo funcionário

@@ -18,7 +18,7 @@ export const StyledCardCompany = styled.section`
   border-radius: 8px;
   gap: 16px;
 
-  background-color: #0258ff;
+  background-color: hsla(220, 100%, 50%);
   color: #ffffff;
 
   cursor: pointer;

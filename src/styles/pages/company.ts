@@ -10,6 +10,12 @@ export const StyledCompany = styled.main`
     justify-content: space-between;
     margin-bottom: 64px;
   }
+
+  .header__left {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
 `;
 
 export const StyledCardEployee = styled.div<StyledCardEployeeProps>`
