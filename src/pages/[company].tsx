@@ -10,6 +10,7 @@ import BackButton from "../components/backButton";
 import Link from "next/link";
 import Portal from "../HOC/Portal";
 import RegistrationModal from "../components/registrationModal";
+import ToggleSwitch from "../components/toggleSwitch";
 
 const Company = () => {
   const [portalIsOpen, setPortalIsOpen] = useState(false);

@@ -1,5 +1,6 @@
 import React from "react";
 import CustomInput from "../customInput";
+import ToggleSwitch from "../toggleSwitch";
 import { StyledRegistrationModal, WrapperRegistrationModal } from "./styles";
 
 const RegistrationModal = () => {
@@ -17,6 +18,7 @@ const RegistrationModal = () => {
           <CustomInput label="Setor" placeholder="Sustentação" />
           <CustomInput label="Cargo" placeholder="Analista de sistemas" />
           <CustomInput label="Endereço" placeholder="Av. Lúcio Costa" />
+          <ToggleSwitch />
         </div>
         <div className="action">
           <button className="btn red">Excluir funcionário</button>
