@@ -19,8 +19,8 @@ export const StyledCompany = styled.main`
 `;
 
 export const StyledCardEployee = styled.div<StyledCardEployeeProps>`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
   align-items: center;
   padding: 16px 24px;
   border-radius: 8px;
