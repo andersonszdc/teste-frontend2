@@ -56,6 +56,20 @@ const RegistrationModal = ({
     employee ? updateEmployee() : addEmployee();
   };
 
+  const deleteUser = () => {
+    setEmployees((employees) => {
+      const newList = [];
+      employees.map((emp) => {
+        if (emp.name !== employee.name) {
+          newList.push(emp);
+        }
+      });
+
+      return [...newList];
+    });
+    setPortalIsOpen(false);
+  };
+
   return (
     <WrapperRegistrationModal>
       <StyledRegistrationModal>
@@ -127,7 +141,13 @@ const RegistrationModal = ({
           <ToggleSwitch isActive={isActive} setIsActive={setIsActive} />
         </div>
         <div className="action">
-          <button className="btn red">Excluir funcionário</button>
+          <div>
+            {employee && (
+              <button className="btn red" onClick={deleteUser}>
+                Excluir funcionário
+              </button>
+            )}
+          </div>
           <div className="action__main">
             <button
               className="btn blue-border"
