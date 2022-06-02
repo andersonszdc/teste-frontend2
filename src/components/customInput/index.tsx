@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from "react";
+import {
+  birthMask,
+  CPFMask,
+  RGMask,
+  telephoneMask,
+} from "../../utils/inputMasks";
 import { StyledCustomInput } from "./styles";
 
 type CustomInputProps = {
@@ -41,10 +47,25 @@ const CustomInput = ({
     }
   }, [errorMessage, value]);
 
+  const mask = (value) => {
+    switch (name) {
+      case "birthDate":
+        return birthMask(value);
+      case "telephone":
+        return telephoneMask(value);
+      case "RG":
+        return RGMask(value);
+      case "CPF":
+        return CPFMask(value);
+      default:
+        return value;
+    }
+  };
+
   const handleChange = (e: any) => {
     setDataUser((employee) => ({
       ...employee,
-      [e.target.name]: e.target.value,
+      [e.target.name]: mask(e.target.value),
     }));
   };
 

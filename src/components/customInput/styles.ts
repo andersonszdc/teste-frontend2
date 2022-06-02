@@ -18,6 +18,12 @@ export const StyledCustomInput = styled.div<StyledCustomInputProps>`
     font-size: 16px;
     font-weight: 500;
     padding: 8px;
+    transition: 0.2s ease-out;
+    outline: 2px solid transparent;
+
+    :focus {
+      outline: 2px solid hsl(220, 100%, 50%);
+    }
   }
   ${({ error }) =>
     error &&
