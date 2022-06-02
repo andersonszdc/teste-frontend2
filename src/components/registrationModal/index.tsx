@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Portal from "../../HOC/Portal";
+import { checkDuplicateCPF } from "../../utils/checkDuplicateCPF";
 import CustomInput from "../customInput";
 import MessageCard from "../messageCard";
 import ToggleSwitch from "../toggleSwitch";
@@ -36,7 +37,7 @@ const RegistrationModal = ({
     setDataUser((user) => ({ ...user, status: isActive }));
   }, [setDataUser, isActive]);
 
-  const checkFields = (employee = dataUser) => {
+  const checkFields = async (employee = dataUser) => {
     const {
       name,
       birthDate,
@@ -50,7 +51,12 @@ const RegistrationModal = ({
     } = employee;
     if (name && birthDate && CPF && RG && setor && cargo && address) {
       if (telephone || email) {
-        return true;
+        if (await checkDuplicateCPF(CPF)) {
+          return true;
+        } else {
+          setErrorMessage("CPF já cadastrado!");
+          return false;
+        }
       } else {
         setErrorMessage("Preencha, pelo menos, o email ou telefone!");
         return false;
@@ -62,12 +68,14 @@ const RegistrationModal = ({
   };
 
   const addEmployee = () => {
-    if (checkFields()) {
-      setEmployees((employees) => [...employees, dataUser]);
-      setPortalIsOpen(false);
-    } else {
-      setOpenErrorMessage(true);
-    }
+    checkFields().then((res) => {
+      if (res) {
+        setEmployees((employees) => [...employees, dataUser]);
+        setPortalIsOpen(false);
+      } else {
+        setOpenErrorMessage(true);
+      }
+    });
   };
 
   const updateEmployee = () => {
@@ -87,7 +95,7 @@ const RegistrationModal = ({
     }
   };
 
-  const clickOnSave = () => {
+  const clickOnSave = async () => {
     employee ? updateEmployee() : addEmployee();
   };
 
