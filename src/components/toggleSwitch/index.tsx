@@ -8,7 +8,7 @@ type ToggleSwitchProps = {
 
 const ToggleSwitch = ({ isActive, setIsActive }: ToggleSwitchProps) => {
   const handleSwitch = () => {
-    setIsActive(isActive ? false : true);
+    setIsActive((isActive) => (isActive ? false : true));
   };
   return (
     <WrapperToggle>

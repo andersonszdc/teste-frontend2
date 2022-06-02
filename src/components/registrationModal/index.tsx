@@ -3,28 +3,58 @@ import CustomInput from "../customInput";
 import ToggleSwitch from "../toggleSwitch";
 import { StyledRegistrationModal, WrapperRegistrationModal } from "./styles";
 
-const RegistrationModal = ({ setPortalIsOpen, employees, setEmployees }) => {
-  const [isActive, setIsActive] = useState(false);
+type RegistrationModalProps = {
+  setPortalIsOpen: any;
+  setEmployees: any;
+  employee?: any;
+};
+
+const RegistrationModal = ({
+  setPortalIsOpen,
+  setEmployees,
+  employee,
+}: RegistrationModalProps) => {
+  const [isActive, setIsActive] = useState(employee ? employee.status : false);
   const [dataUser, setDataUser] = useState({
-    name: "",
-    CPF: "",
-    RG: "",
-    setor: "",
-    cargo: "",
-    address: "",
-    birthDate: "",
-    telephone: "",
-    email: "",
+    name: employee ? employee.name : "",
+    CPF: employee ? employee.CPF : "",
+    RG: employee ? employee.RG : "",
+    setor: employee ? employee.setor : "",
+    cargo: employee ? employee.cargo : "",
+    address: employee ? employee.address : "",
+    birthDate: employee ? employee.birthDate : "",
+    telephone: employee ? employee.telephone : "",
+    email: employee ? employee.email : "",
     status: isActive,
   });
 
+  useEffect(() => {
+    setDataUser((user) => ({ ...user, status: isActive }));
+  }, [setDataUser, isActive]);
+
   const addEmployee = () => {
+    console.log(dataUser.status);
     setEmployees((employees) => [...employees, dataUser]);
+    setPortalIsOpen(false);
   };
 
-  useEffect(() => {
-    console.log(dataUser);
-  });
+  const updateEmployee = () => {
+    console.log(dataUser.status);
+    setEmployees((employees) => {
+      const newList = employees.map((emp) => {
+        if (emp.name === employee.name) return dataUser;
+
+        return emp;
+      });
+
+      return [...newList];
+    });
+    setPortalIsOpen(false);
+  };
+
+  const clickOnSave = () => {
+    employee ? updateEmployee() : addEmployee();
+  };
 
   return (
     <WrapperRegistrationModal>
@@ -105,7 +135,7 @@ const RegistrationModal = ({ setPortalIsOpen, employees, setEmployees }) => {
             >
               Cancelar
             </button>
-            <button className="btn full-blue" onClick={addEmployee}>
+            <button className="btn full-blue" onClick={clickOnSave}>
               Salvar
             </button>
           </div>

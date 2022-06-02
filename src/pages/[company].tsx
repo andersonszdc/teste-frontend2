@@ -38,14 +38,17 @@ const Company = ({ databaseEmployees }) => {
         </header>
         <section className="list">
           {employees.map((employee: any, index: number) => (
-            <CardEmployee key={index} employee={employee} />
+            <CardEmployee
+              key={index}
+              employee={employee}
+              setEmployees={setEmployees}
+            />
           ))}
         </section>
       </StyledCompany>
       {portalIsOpen ? (
         <Portal>
           <RegistrationModal
-            employees={employees}
             setEmployees={setEmployees}
             setPortalIsOpen={setPortalIsOpen}
           />
@@ -57,23 +60,37 @@ const Company = ({ databaseEmployees }) => {
 
 export default Company;
 
-const CardEmployee = ({ employee }) => {
+const CardEmployee = ({ employee, setEmployees }) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [openPortal, setOpenPortal] = useState(false);
 
   const setCheckbox = () => {
     setIsClicked(isClicked ? false : true);
   };
   return (
-    <StyledCardEmployee active={isClicked}>
-      <div className="left">
-        <div className="checkbox" onClick={setCheckbox}>
-          {isClicked && <BsCheckLg className="icon" />}
+    <>
+      <StyledCardEmployee active={isClicked}>
+        <div className="left">
+          <div className="checkbox" onClick={setCheckbox}>
+            {isClicked && <BsCheckLg className="icon" />}
+          </div>
+          <p>{employee.name}</p>
         </div>
-        <p>{employee.name}</p>
-      </div>
-      <div>{employee.status ? "Ativo" : "Inativo"}</div>
-      <button className="btn__edit">Editar</button>
-    </StyledCardEmployee>
+        <div>{employee.status ? "Ativo" : "Inativo"}</div>
+        <button className="btn__edit" onClick={() => setOpenPortal(true)}>
+          Editar
+        </button>
+      </StyledCardEmployee>
+      {openPortal ? (
+        <Portal>
+          <RegistrationModal
+            setPortalIsOpen={setOpenPortal}
+            setEmployees={setEmployees}
+            employee={employee}
+          />
+        </Portal>
+      ) : null}
+    </>
   );
 };
 
