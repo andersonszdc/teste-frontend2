@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const StyledCustomInput = styled.div`
+type StyledCustomInputProps = {
+  error: boolean;
+};
+
+export const StyledCustomInput = styled.div<StyledCustomInputProps>`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -15,4 +19,11 @@ export const StyledCustomInput = styled.div`
     font-weight: 500;
     padding: 8px;
   }
+  ${({ error }) =>
+    error &&
+    `
+    input {
+      outline: 2px solid hsl(360, 95%, 60%);
+    }
+  `}
 `;

@@ -108,6 +108,7 @@ const RegistrationModal = ({
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpenErrorMessage(false);
+      setErrorMessage("");
     }, 5000);
     return () => clearTimeout(timer);
   }, [openErrorMessage]);
@@ -124,6 +125,7 @@ const RegistrationModal = ({
               value={dataUser.name}
               name="name"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="Data de nascimento"
@@ -131,6 +133,7 @@ const RegistrationModal = ({
               value={dataUser.birthDate}
               name="birthDate"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="Telefone"
@@ -138,6 +141,7 @@ const RegistrationModal = ({
               value={dataUser.telephone}
               name="telephone"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="Email"
@@ -145,6 +149,7 @@ const RegistrationModal = ({
               value={dataUser.email}
               name="email"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="CPF"
@@ -152,6 +157,7 @@ const RegistrationModal = ({
               value={dataUser.CPF}
               name="CPF"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="RG"
@@ -159,6 +165,7 @@ const RegistrationModal = ({
               value={dataUser.RG}
               name="RG"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="Setor"
@@ -166,6 +173,7 @@ const RegistrationModal = ({
               value={dataUser.setor}
               name="setor"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="Cargo"
@@ -173,6 +181,7 @@ const RegistrationModal = ({
               value={dataUser.cargo}
               name="cargo"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <CustomInput
               label="Endereço"
@@ -180,6 +189,7 @@ const RegistrationModal = ({
               value={dataUser.address}
               name="address"
               setDataUser={setDataUser}
+              errorMessage={errorMessage}
             />
             <ToggleSwitch isActive={isActive} setIsActive={setIsActive} />
           </div>
